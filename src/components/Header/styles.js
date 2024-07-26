@@ -21,10 +21,6 @@ export const NavButtons = styled.div`
         padding: 0.5rem;
         border-radius: 8px;
         gap: 0.5rem;
-
-        span {
-            //  color: ${(props) => props.theme['purple-dark']};
-        }
     }
 
     button {
@@ -38,6 +34,10 @@ export const NavButtons = styled.div`
         align-items: center;
         justify-content: center;
         cursor: pointer;
+
+        &:disabled:hover {
+            cursor: not-allowed;
+        }
     }
 `;
 

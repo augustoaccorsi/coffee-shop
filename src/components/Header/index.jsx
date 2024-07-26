@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { HeaderContainer, NavButtons, CartBadge } from './styles';
-import logo from '../../assets/logo.svg';
 import { RiMapPin2Fill } from 'react-icons/ri';
 import { PiShoppingCartFill } from 'react-icons/pi';
 import { Outlet } from 'react-router-dom';
+import { CoffeeContext } from '../../context/CoffeeContext';
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
+    const { coffees } = useContext(CoffeeContext);
     return (
         <>
             <header>
                 <HeaderContainer>
                     <div>
-                        <img src={logo} alt="logo" />
+                        <img src="logo.svg" alt="logo" />
                         <div>
                             <NavButtons>
                                 <div>
@@ -19,10 +21,17 @@ const Header = () => {
                                     <span>Porto Alegre, RS</span>
                                 </div>
 
-                                <button>
-                                    <PiShoppingCartFill size={25} />
-                                </button>
-                                <CartBadge>3</CartBadge>
+                                <NavLink to="/checkout">
+                                    <button disabled={coffees.length === 0}>
+                                        <PiShoppingCartFill
+                                            size={25}
+                                            disabled
+                                        />
+                                    </button>
+                                </NavLink>
+                                {coffees.length > 0 ? (
+                                    <CartBadge>{coffees.length}</CartBadge>
+                                ) : null}
                             </NavButtons>
                         </div>
                     </div>

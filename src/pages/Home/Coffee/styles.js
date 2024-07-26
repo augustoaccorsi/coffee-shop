@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const CoffeeContainer = styled.div`
-    background-color: ${(props) => props.theme['base-card']};
+    background: ${(props) => props.theme['base-card']};
     width: 16rem;
     height: 19rem;
     border-top-right-radius: 30px;
@@ -11,6 +11,7 @@ export const CoffeeContainer = styled.div`
 
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+    margin: 0.5rem;
 `;
 
 export const CoffeeMain = styled.main`
@@ -19,15 +20,24 @@ export const CoffeeMain = styled.main`
     justify-content: center;
     flex-direction: column;
 
-    span {
-        background: ${(props) => props.theme['yellow-light']};
-        color: ${(props) => props.theme['yellow-dark']};
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
-        margin: 0.5rem;
-        border-radius: 8px;
-        font-size: 0.8rem;
-        font-weight: bold;
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        span {
+            background: ${(props) => props.theme['yellow-light']};
+            color: ${(props) => props.theme['yellow-dark']};
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            margin: 0.5rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: bold;
+
+            display: flex;
+            align-items: center;
+        }
     }
 
     img {
@@ -94,6 +104,10 @@ export const CoffeeFooter = styled.footer`
             align-items: center;
             justify-content: center;
             cursor: pointer;
+
+            &:disabled {
+                cursor: not-allowed;
+            }
 
             &:hover {
                 background: ${(props) => props.theme['purple']};

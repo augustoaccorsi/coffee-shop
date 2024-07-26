@@ -15,7 +15,6 @@ import {
     PiShoppingCartFill,
 } from 'react-icons/pi';
 import { BsAlarmFill } from 'react-icons/bs';
-import coffeeheader from '../../assets/images/hero.svg';
 import Coffee from './Coffee/index';
 import data from '../../coffee.json';
 
@@ -64,7 +63,7 @@ const Home = () => {
                             </div>
                         </HomeHeaderSplitter>
                     </div>
-                    <img src={coffeeheader} alt="coffee header" />
+                    <img src="/images/hero.svg" alt="coffee header" />
                 </div>
             </HomeHeader>
             <HomeMain>
