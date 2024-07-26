@@ -20,8 +20,6 @@ export const CoffeeCheckoutContainer = styled.div`
             align-items: center;
             justify-content: space-between;
 
-            gap: 1rem;
-
             p {
                 font-weight: bold;
                 flex: 1;
@@ -71,7 +69,7 @@ export const RemoveButton = styled.button`
     border-radius: 4px;
     border: 0;
 
-    padding-right: 0.5rem;
+    // padding-right: 0.5rem;
 
     :first-child {
         color: ${(props) => props.theme['purple']};
@@ -97,6 +95,10 @@ export const CheckoutFooter = styled.div`
     }
 `;
 
+export const CheckoutDiv = styled.div`
+    padding-bottom: 0.5rem;
+`;
+
 export const CheckoutButton = styled.button`
     width: 30rem;
     height: 4rem;
@@ -117,8 +119,36 @@ export const CheckoutButton = styled.button`
 
     padding-right: 0.5rem;
 
+    color: ${(props) => props.theme['base-input']};
+
     &:hover {
         box-shadow: none;
         background: ${(props) => props.theme['yellow-dark']};
     }
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+`;
+
+export const AddRemoveDiv = styled.div`
+    gap: 1rem;
+    padding-left: 1rem;
+`;
+
+export const TitleDiv = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+
+    padding-left: 1rem;
+`;
+
+export const Line = styled.div`
+    border: solid 1px ${(props) => props.theme['base-button']};
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 0.5rem;
+    margin-top: 0.5rem;
 `;

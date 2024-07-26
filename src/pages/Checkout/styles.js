@@ -21,7 +21,7 @@ export const AddressContainer = styled.div`
     padding: 2rem;
     border-radius: 8px;
 
-    form {
+    header {
         display: flex;
         justify-content: left;
         align-items: center;
@@ -81,7 +81,7 @@ export const CheckoutInputUF = styled(BaseInput)`
 export const CoffeContainer = styled.div`
     background: ${(props) => props.theme['base-card']};
     width: 1fr;
-    height: 30rem;
+    height: auto;
 
     margin-top: 2rem;
 
@@ -99,7 +99,7 @@ export const CoffePayment = styled.div`
     margin-top: 2rem;
     padding: 2rem;
 
-    form {
+    header {
         display: flex;
         justify-content: left;
         align-items: center;
@@ -158,16 +158,84 @@ export const ButtonNotChecked = styled(Button)`
 
 export const ButtonChecked = styled(Button)`
     :first-child {
-        color: ${(props) => props.theme['purple']};
+        color: ${(props) => props.theme['purple-light']};
     }
 
-    background: ${(props) => props.theme['purple-light']};
-    color: ${(props) => props.theme['base-title']};
+    background: ${(props) => props.theme['purple']};
+    color: ${(props) => props.theme['purple-light']};
 
     &:hover {
         :first-child {
             color: ${(props) => props.theme['purple-light']};
         }
-        background: ${(props) => props.theme['purple']};
+        background: ${(props) => props.theme['purple-dark']};
     }
+`;
+
+export const OrderCompletedDiv = styled.div`
+    display: grid;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 2rem;
+
+    margin-top: 3rem;
+
+    h1 {
+        color: ${(props) => props.theme['yellow-dark']};
+    }
+
+    span {
+        color: ${(props) => props.theme['base-title']};
+    }
+
+    img {
+        margin-top: 6rem;
+    }
+`;
+
+export const OrderCompleteContainer = styled.div`
+    margin-top: 3rem;
+    padding: 1rem;
+
+    border: 2px solid ${(props) => props.theme['purple']};
+
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+`;
+
+export const OrderCompleteContainerDiv = styled.div`
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+    margin: 1rem;
+`;
+
+const Span = styled.span`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    border-radius: 50%;
+    margin: 0.5rem;
+
+    :first-child {
+        height: 2rem;
+        width: 2rem;
+        padding: 5px;
+        color: ${(props) => props.theme['white']};
+    }
+`;
+
+export const SpanPurple = styled(Span)`
+    background: ${(props) => props.theme['purple']};
+`;
+
+export const SpanYellow = styled(Span)`
+    background: ${(props) => props.theme['yellow']};
+`;
+
+export const SpanYellowDark = styled(Span)`
+    background: ${(props) => props.theme['yellow-dark']};
 `;

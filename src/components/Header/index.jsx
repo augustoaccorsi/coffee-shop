@@ -13,7 +13,9 @@ const Header = () => {
             <header>
                 <HeaderContainer>
                     <div>
-                        <img src="logo.svg" alt="logo" />
+                        <NavLink to="/">
+                            <img src="logo.svg" alt="logo" />
+                        </NavLink>
                         <div>
                             <NavButtons>
                                 <div>
