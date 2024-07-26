@@ -8,12 +8,12 @@ const Coffee = ({ coffee }) => {
 
     const [quantity, setQuantity] = useState(0);
 
-    const handleAddToCart = (name, price) => {
+    const handleAddToCart = (selectedCoffee) => {
         const newCoffee = {
-            name: name,
-            price: price,
+            ...selectedCoffee,
             quantity: quantity,
         };
+        debugger;
         addCoffeeToCart(newCoffee);
         setQuantity(0);
     };
@@ -48,9 +48,7 @@ const Coffee = ({ coffee }) => {
                     />
                     <button
                         disabled={quantity === 0}
-                        onClick={() =>
-                            handleAddToCart(coffee.name, coffee.price)
-                        }
+                        onClick={() => handleAddToCart(coffee)}
                     >
                         <PiShoppingCartFill />
                     </button>

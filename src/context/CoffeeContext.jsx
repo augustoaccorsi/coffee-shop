@@ -7,23 +7,30 @@ const CoffeeContextProvider = (props) => {
     const [orderCreated, setOrderCreated] = useState(false);
 
     const addCoffeeToCart = (coffee) => {
-        const newCoffee = {
-            name: coffee.name,
-            quantity: coffee.quantity,
-            price: coffee.price,
-            image: coffee.image,
-        };
-
-        setCoffees([...coffees, newCoffee]);
+        setCoffees([...coffees, coffee]);
     };
 
     const createOrder = () => {
         setOrderCreated(true);
     };
 
+    const updateQuantity = (id, quantity) => {
+        setCoffees((coffees) =>
+            coffees.map((coffee) =>
+                coffee.id === id ? { ...coffee, quantity: quantity } : coffee
+            )
+        );
+    };
+
     return (
         <CoffeeContext.Provider
-            value={{ addCoffeeToCart, coffees, createOrder, orderCreated }}
+            value={{
+                addCoffeeToCart,
+                coffees,
+                createOrder,
+                orderCreated,
+                updateQuantity,
+            }}
         >
             {props.children}
         </CoffeeContext.Provider>

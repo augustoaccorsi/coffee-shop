@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {
     CheckoutContainer,
     AddressContainer,
@@ -21,6 +21,7 @@ import {
     PiBank,
 } from 'react-icons/pi';
 import CoffeeCheckout from './CoffeeCheckout/index';
+import { CoffeeContext } from '../../context/CoffeeContext';
 
 const PAYMENT = {
     NONE: 0,
@@ -31,6 +32,7 @@ const PAYMENT = {
 
 const Checkout = () => {
     const [selectedPayment, setSelectedPayment] = useState(PAYMENT.NONE);
+    const { coffees } = useContext(CoffeeContext);
 
     return (
         <CheckoutContainer>
@@ -98,7 +100,7 @@ const Checkout = () => {
                             <ButtonChecked
                                 onClick={() => setSelectedPayment(PAYMENT.NONE)}
                             >
-                                <PiMoneyFill size={20} />
+                                <PiBank size={20} />
                                 DINHEIRO
                             </ButtonChecked>
                         ) : (
@@ -107,7 +109,7 @@ const Checkout = () => {
                                     setSelectedPayment(PAYMENT.DEBIT)
                                 }
                             >
-                                <PiMoneyFill size={20} />
+                                <PiBank size={20} />
                                 DINHEIRO
                             </ButtonNotChecked>
                         )}
@@ -133,7 +135,7 @@ const Checkout = () => {
             <div>
                 <h3>Cafés selecionados</h3>
                 <CoffeContainer>
-                    <CoffeeCheckout />
+                    <CoffeeCheckout coffees={coffees} />
                 </CoffeContainer>
             </div>
         </CheckoutContainer>
