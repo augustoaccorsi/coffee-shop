@@ -9,6 +9,9 @@ import {
     CheckoutInputCity,
     CheckoutInputUF,
     CoffePayment,
+    ButtonNotChecked,
+    ButtonDiv,
+    ButtonChecked,
 } from './styles';
 import {
     PiMapPinLine,
@@ -19,8 +22,15 @@ import {
 } from 'react-icons/pi';
 import CoffeeCheckout from './CoffeeCheckout/index';
 
+const PAYMENT = {
+    NONE: 0,
+    CREDIT: 1,
+    DEBIT: 2,
+    CASH: 3,
+};
+
 const Checkout = () => {
-    const [selectedPayment, setSelectedPayment] = useState({});
+    const [selectedPayment, setSelectedPayment] = useState(PAYMENT.NONE);
 
     return (
         <CheckoutContainer>
@@ -65,20 +75,59 @@ const Checkout = () => {
                             </p>
                         </div>
                     </form>
-                    <div>
-                        <button>
-                            <PiCreditCardBold size={20} />
-                            CARTÃO DE CRÉDITO
-                        </button>
-                        <button>
-                            <PiBank size={20} />
-                            CARTÃO DE DÉBITO
-                        </button>
-                        <button>
-                            <PiMoneyFill size={20} />
-                            DINHEIRO
-                        </button>
-                    </div>
+                    <ButtonDiv>
+                        {selectedPayment === PAYMENT.CREDIT ? (
+                            <ButtonChecked
+                                onClick={() => setSelectedPayment(PAYMENT.NONE)}
+                            >
+                                <PiCreditCardBold size={20} />
+                                CARTÃO DE CRÉDITO
+                            </ButtonChecked>
+                        ) : (
+                            <ButtonNotChecked
+                                onClick={() =>
+                                    setSelectedPayment(PAYMENT.CREDIT)
+                                }
+                            >
+                                <PiCreditCardBold size={20} />
+                                CARTÃO DE CRÉDITO
+                            </ButtonNotChecked>
+                        )}
+
+                        {selectedPayment === PAYMENT.DEBIT ? (
+                            <ButtonChecked
+                                onClick={() => setSelectedPayment(PAYMENT.NONE)}
+                            >
+                                <PiMoneyFill size={20} />
+                                DINHEIRO
+                            </ButtonChecked>
+                        ) : (
+                            <ButtonNotChecked
+                                onClick={() =>
+                                    setSelectedPayment(PAYMENT.DEBIT)
+                                }
+                            >
+                                <PiMoneyFill size={20} />
+                                DINHEIRO
+                            </ButtonNotChecked>
+                        )}
+
+                        {selectedPayment === PAYMENT.CASH ? (
+                            <ButtonChecked
+                                onClick={() => setSelectedPayment(PAYMENT.NONE)}
+                            >
+                                <PiCreditCardBold size={20} />
+                                CARTÃO DE CRÉDITO
+                            </ButtonChecked>
+                        ) : (
+                            <ButtonNotChecked
+                                onClick={() => setSelectedPayment(PAYMENT.CASH)}
+                            >
+                                <PiCreditCardBold size={20} />
+                                CARTÃO DE CRÉDITO
+                            </ButtonNotChecked>
+                        )}
+                    </ButtonDiv>
                 </CoffePayment>
             </div>
             <div>

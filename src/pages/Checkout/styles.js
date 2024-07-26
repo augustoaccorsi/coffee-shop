@@ -19,6 +19,7 @@ export const AddressContainer = styled.div`
 
     margin-top: 2rem;
     padding: 2rem;
+    border-radius: 8px;
 
     form {
         display: flex;
@@ -91,7 +92,9 @@ export const CoffeContainer = styled.div`
 export const CoffePayment = styled.div`
     background: ${(props) => props.theme['base-card']};
     width: 50rem;
-    height: 10rem;
+    height: 12rem;
+
+    border-radius: 8px;
 
     margin-top: 2rem;
     padding: 2rem;
@@ -113,32 +116,58 @@ export const CoffePayment = styled.div`
             color: ${(props) => props.theme['base-subtitle']};
         }
     }
+`;
 
-    div {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+export const ButtonDiv = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+`;
 
-        gap: 1rem;
+const Button = styled.button`
+    :first-child {
+        margin-right: 0.5rem;
+    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
 
-        button {
-            :first-child {
-                color: ${(props) => props.theme['purple']};
-            }
+    height: 3rem;
+    cursor: pointer;
 
-            background: ${(props) => props.theme['base-button']};
-            height: 3rem;
-            color: ${(props) => props.theme['base-title']};
-            cursor: pointer;
+    outline: none;
+    border-radius: 8px;
+    border: 0;
+    padding: 1rem;
+`;
 
-            outline: none;
-            border-radius: 8px;
-            border: 0;
-            padding: 1rem;
+export const ButtonNotChecked = styled(Button)`
+    :first-child {
+        color: ${(props) => props.theme['purple']};
+    }
 
-            &:hover {
-                background: ${(props) => props.theme['base-hover']};
-            }
+    background: ${(props) => props.theme['base-button']};
+    color: ${(props) => props.theme['base-title']};
+
+    &:hover {
+        background: ${(props) => props.theme['base-hover']};
+    }
+`;
+
+export const ButtonChecked = styled(Button)`
+    :first-child {
+        color: ${(props) => props.theme['purple']};
+    }
+
+    background: ${(props) => props.theme['purple-light']};
+    color: ${(props) => props.theme['base-title']};
+
+    &:hover {
+        :first-child {
+            color: ${(props) => props.theme['purple-light']};
         }
+        background: ${(props) => props.theme['purple']};
     }
 `;
